@@ -28,7 +28,7 @@ from torchvision import transforms, datasets
 #Transfer learning
 
 data_transform = transforms.Compose([
-        transforms.RandomResizedCrop((600,400)),
+        transforms.RandomResizedCrop((227,227)),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -41,12 +41,12 @@ data_transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
-trainset = datasets.ImageFolder(root='Arc_nuova/train',
+trainset = datasets.ImageFolder(root='Concrete Crack Images for Classification/train',
                                            transform=data_transform)
 trainloader = torch.utils.data.DataLoader(trainset,
                                              batch_size=32, shuffle=True,
                                              num_workers=2)
-testset = datasets.ImageFolder(root='Arc_nuova/valid',
+testset = datasets.ImageFolder(root='Concrete Crack Images for Classification/valid',
                                            transform=data_transform)
 testloader = torch.utils.data.DataLoader(testset,
                                              batch_size=32, shuffle=False,
